@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Research by Title{% endblock %}
+
+
+{% block body %}
+<div class="container">
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-body-emphasis">Research Movie in Library</h1>
+</div>
+
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Research Movies</button>
+</form>
+</div>
+{% endblock %}

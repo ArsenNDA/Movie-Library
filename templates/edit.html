@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Edit Movie{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-body-emphasis">UPDATE Movie in Library</h1>
+</div>
+
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="ranking" class="form-label">Ranking</label>
+        <input type="int" step="0.1" class="form-control" id="ranking" name="ranking" value="{{ ranking }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="review" class="form-label">Review</label>
+        <input type="text" step="0.1" class="form-control" id="review" name="review" value="{{ review }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Movie</button>
+</form>
+</div>
+{% endblock %}

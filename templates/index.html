@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}My Top 10 Movies{% endblock %}
+
+{%block body %}
+
+
+<div class=" text-secondary px-4 py-5 text-center">
+    <div class="py-5">
+      <h1 class="display-5 fw-bold text-black">Arsen's Movies</h1>
+        <br>
+      <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a href="{{ url_for('add') }}" class="btn btn-outline-success btn-lg px-4">Add Movie</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+{% for movie in movies %}
+
+
+<div class="bg- container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">{{ movie[1] }}</h1>
+          <p class="lead">{{ movie[2] }}</p>
+          <p class="fw-bolder">{{ movie[3] }}</p>
+          <p class="fw-bolder">Review : {{ movie[6] }}</p>
+          <p class="fw-bolder">Rating : {{ movie[4] }}</p>
+          <p class="fw-bolder">Ranking : {{ movie[5] }}</p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+            <a class="btn btn-outline-warning btn-lg px-4" href="{{ url_for('edit', id=movie[0]) }}">Edit</a>
+            <form action="{{ url_for('delete', id=movie[0]) }}" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-outline-danger btn-lg px-4">Delete</button>
+            </form>
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="{{ movie[7] }}" alt="" width="432">
+      </div>
+    </div>
+  </div>
+
+
+
+{% endfor %}
+
+
+
+    <div class="col-lg-6 mx-auto">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="{{ url_for('add') }}" class="btn btn-success mb-3">Add Movie</a>
+      </div>
+    </div>
+
+
+
+{% endblock %}
